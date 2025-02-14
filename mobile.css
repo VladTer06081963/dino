@@ -1,4 +1,3 @@
-/** @format */
 body {
   margin: 0;
   overflow: hidden;
@@ -7,16 +6,14 @@ body {
   background-color: black;
 }
 
-h1 {
+/* h1 {
   margin-top: 10px;
-  color: white;
 }
 
 h2 {
   margin-top: 5px;
   font-size: 18px;
-  color: white;
-}
+} */
 
 .game {
   width: 800px;
@@ -27,6 +24,9 @@ h2 {
   overflow: hidden;
   background-image: url(img/bg.webp);
   background-size: 800px 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 3px;
 }
 
 /* Dino */
@@ -56,8 +56,12 @@ h2 {
 
 /* Анимация движения Cactus */
 @keyframes cactusMove {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-900px); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-900px);
+  }
 }
 
 /* Анимация прыжка */
@@ -66,11 +70,21 @@ h2 {
 }
 
 @keyframes jump {
-  0% { transform: translateY(0); }
-  30% { transform: translateY(-45px); }
-  50% { transform: translateY(-150px); }
-  80% { transform: translateY(-45px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-45px);
+  }
+  50% {
+    transform: translateY(-150px);
+  }
+  80% {
+    transform: translateY(-45px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* Сообщение "Переверните устройство" */
@@ -97,7 +111,7 @@ h2 {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 #controls button {
@@ -105,15 +119,20 @@ h2 {
   height: 80px;
   border-radius: 50%;
   border: none;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(94, 14, 14, 0.7);
   color: white;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
 }
 
+/* Перемещаем кнопку Jump чуть левее */
+#jump-button {
+  margin-right: 60px;
+}
+
 #controls button:active {
-  background: rgba(0, 0, 0, 1);
+  background: rgba(94, 14, 14, 0.75);
 }
 
 /* === Адаптация для мобильных устройств === */
@@ -132,7 +151,8 @@ h2 {
   #rotate-message {
     display: block; /* Показываем сообщение */
   }
-  .game, #controls {
+  .game,
+  #controls {
     display: none; /* Скрываем игру и кнопки */
   }
 }
