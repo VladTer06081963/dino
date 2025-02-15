@@ -39,7 +39,7 @@ html {
   background-image: url(img/cactus.png);
   background-size: cover;
   position: absolute;
-  left: 850px;
+  left: 800px;
   bottom: 10px;
   transform: translateX(0);
   animation: cactusMove 3s infinite linear;
