@@ -1,0 +1,150 @@
+body {
+  margin-top: 20px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: black;
+}
+
+.game {
+  width: 800px;
+  height: 400px;
+  /* border-bottom: 2px solid black; */
+  margin: auto;
+  /* position: relative; */
+  position: absolute;
+  overflow: hidden;
+  background-image: url(img/bg.webp);
+  background-size: 800px 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* padding-top: 3px; */
+}
+
+/* Dino */
+#dino {
+  width: 150px;
+  height: 150px;
+  background-image: url(img/dino.png);
+  background-size: 150px 150px;
+  position: absolute;
+  left: 90px;
+  bottom: 0;
+  transform: translateY(0);
+}
+
+/* Cactus */
+#cactus {
+  width: 100px;
+  height: 100px;
+  background-image: url(img/cactus.png);
+  background-size: 100px 100px;
+  position: absolute;
+  left: 800px;
+  bottom: 0;
+  transform: translateX(0);
+  animation: cactusMove 3s infinite linear;
+}
+
+/* Анимация движения Cactus */
+@keyframes cactusMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-900px);
+  }
+}
+
+/* Анимация прыжка */
+.jump {
+  animation: jump 0.9s linear;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-45px);
+  }
+  50% {
+    transform: translateY(-150px);
+  }
+  80% {
+    transform: translateY(-45px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Сообщение "Переверните устройство" */
+#rotate-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  background: red;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Кнопки управления (мобильные устройства) */
+#controls {
+  display: none; /* По умолчанию скрыты */
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60px;  
+}
+
+#controls button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(94, 14, 14, 0.7);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Перемещаем кнопку Jump чуть левее */
+#jump-button {
+  margin-right: 60px;
+}
+
+#controls button:active {
+  background: rgba(94, 14, 14, 0.75);
+}
+
+/* === Адаптация для мобильных устройств === */
+@media screen and (max-width: 900px) {
+  .game {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  #controls {
+    display: flex; /* Показываем кнопки */
+  }
+}
+
+@media screen and (orientation: portrait) {
+  #rotate-message {
+    display: block; /* Показываем сообщение */
+  }
+  .game,
+  #controls {
+    display: none; /* Скрываем игру и кнопки */
+  }
+}
