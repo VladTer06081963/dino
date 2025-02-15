@@ -126,7 +126,7 @@ function gameOver() {
   crashSound.volume = 0.7;
   crashSound.play();
 
-  showMessage("Game Over!!! Нажмите Enter для рестарта");
+  showMessage("Game Over!!! Нажмите Enter для рестарта Держите телефон горизонтально");
 }
 
 // Функция для отображения сообщения
